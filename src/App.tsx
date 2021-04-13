@@ -1,24 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import OnOff from "./components/OnOff/OnOff";
-import UncontrolledAccordion from "./components/Accordion/UncontrolledAccordion";
-// import Accordion from "./components/Accordion/Accordion";
-// import {Rating} from "./components/Rating/Rating";
+// import {OnOff} from "./components/OnOff/OnOff";
+import {UncontrolledOnOff} from './components/OnOff/UncontrolledOnOff';
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
+import {Accordion} from "./components/Accordion/Accordion";
+// import UncontrolledAccordion from "./components/Accordion/UncontrolledAccordion";
 
 function App() {
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+    let [on, setOn] = useState<boolean>(true)
+
     return (
         <div className={'App'}>
-            <OnOff/>
-            <UncontrolledAccordion titleValue={'MENU'}/>
-            <UncontrolledAccordion titleValue={'USERS'}/>
+            {/*<OnOff/>*/}
+            <UncontrolledOnOff on={on} setOn={setOn}/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+            <div> </div>
             <UncontrolledRating/>
-            {/*<Rating value={0}/>*/}
+            <Accordion titleValue={'Menu'} collapsed={accordionCollapsed} accordionCollapsed={accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed}/>
+            {/*<Accordion titleValue={'Users'} collapsed={accordionCollapsed} accordionCollapsed={accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed}/>*/}
+            {/*<UncontrolledAccordion titleValue={'MENU'}/>*/}
+            {/*<UncontrolledAccordion titleValue={'USERS'}/>*/}
             {/*<PageTitle title={'This is APP component'}/>*/}
             {/*<PageTitle title={'das'}/>*/}
             {/*<h3>HELLO</h3>*/}
-            {/*<Accordion titleValue={'Menu'} collapsed={false}/>*/}
-            {/*<Accordion titleValue={'Users'} collapsed={true}/>*/}
             {/*<Rating value={0}/>*/}
             {/*<Rating value={1}/>*/}
             {/*<Rating value={2}/>*/}

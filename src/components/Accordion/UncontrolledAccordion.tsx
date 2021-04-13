@@ -4,14 +4,14 @@ import s from './UncontrolledAccordion.module.css'
 type AccordionPropsType = {
     titleValue: string
     collapsed?: boolean
+
 }
 
 function UncontrolledAccordion(props: AccordionPropsType) {
     let [toggle, setToggle] = useState(false)
     return (
         <div>
-            <div className={s.titleStyle} onClick={()=> setToggle(!toggle)}><AccordionTitle title={props.titleValue}/></div>
-
+            <AccordionTitle onClick={()=> {setToggle(!toggle)}} title={props.titleValue}/>
             {toggle && <AccordionBody/>}
         </div>
     )
@@ -19,11 +19,12 @@ function UncontrolledAccordion(props: AccordionPropsType) {
 
 type AccordionTitlePropsType = {
     title: string
+    onClick: () => void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     return (
-        <h3>{props.title}</h3>
+        <h3 onClick={()=>{props.onClick()}} className={s.titleStyle}>{props.title}</h3>
     )
 
 }
