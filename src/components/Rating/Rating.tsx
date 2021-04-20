@@ -16,6 +16,7 @@ export function Rating(props: RatingPropsType) {
             <Star selected={props.value > 2} onClick={props.onClick} value={3}/>
             <Star selected={props.value > 3} onClick={props.onClick} value={4}/>
             <Star selected={props.value > 4} onClick={props.onClick} value={5}/>
+            <div>1</div>
         </div>
     )
 }
@@ -30,6 +31,7 @@ function Star(props: StarPropsType) {
     return <div onClick={() => {
         props.onClick(props.value)
     }} className={props.selected ? s.starSelected : s.starUnSelected}/>
+
 
 
     // if (props.selected) {
