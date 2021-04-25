@@ -32,7 +32,6 @@ function Star(props: StarPropsType) {
     }} className={props.selected ? s.starSelected : s.starUnSelected}/>
 
 
-
     // if (props.selected) {
     //     return <span><b>star </b></span>
     // } else {
