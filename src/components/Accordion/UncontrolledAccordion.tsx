@@ -7,7 +7,7 @@ type AccordionPropsType = {
 
 }
 
-function UncontrolledAccordion(props: AccordionPropsType) {
+export function UncontrolledAccordion(props: AccordionPropsType) {
     let [toggle, setToggle] = useState(false)
     return (
         <div>
@@ -38,5 +38,3 @@ function AccordionBody() {
         </ul>
     )
 }
-
-export default UncontrolledAccordion;

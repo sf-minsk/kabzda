@@ -3,26 +3,42 @@ import './App.css';
 import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledOnOff} from './components/OnOff/UncontrolledOnOff';
 import {Rating, RatingValueType} from "./components/Rating/Rating";
-// import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
+import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
 import {Accordion} from "./components/Accordion/Accordion";
-import UncontrolledAccordion from "./components/Accordion/UncontrolledAccordion";
+import {UncontrolledAccordion} from "./components/Accordion/UncontrolledAccordion";
 
 function App() {
-
+    let [on, setOn] = useState<boolean>(true)
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
-    let [on, setOn] = useState<boolean>(true)
 
     return (
         <div className={'App'}>
-            <OnOff/>
-            <UncontrolledOnOff on={on} setOn={setOn}/>
-            <Rating value={ratingValue} onClick={setRatingValue}/>
-            <div> </div>
+            <div className={'Block'}>
+                <OnOff  on={on} setOn={setOn}/>
+                <Rating value={ratingValue} onClick={setRatingValue}/>
+                <Accordion titleValue={'MENU'}
+                           collapsed={accordionCollapsed}
+                           setAccordionCollapsed={setAccordionCollapsed}/>
+                {/*<Accordion titleValue={'USERS'}*/}
+                {/*           collapsed={accordionCollapsed}*/}
+                {/*           accordionCollapsed={accordionCollapsed}*/}
+                {/*           setAccordionCollapsed={setAccordionCollapsed}/>*/}
+            </div>
+            <div className={'Block'}>
+                <UncontrolledOnOff/>
+                <UncontrolledRating/>
+                <UncontrolledAccordion titleValue={'MENU'}/>
+                <UncontrolledAccordion titleValue={'USERS'}/>
+            </div>
+            {/*<OnOff/>*/}
+            {/*<UncontrolledOnOff on={on} setOn={setOn}/>*/}
+
+            {/*<div> </div>*/}
             {/*<UncontrolledRating/>*/}
-            <Accordion titleValue={'Menu'} collapsed={accordionCollapsed} accordionCollapsed={accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed}/>
+            {/*<Accordion titleValue={'Menu'} collapsed={accordionCollapsed} accordionCollapsed={accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed}/>*/}
             {/*<Accordion titleValue={'Users'} collapsed={accordionCollapsed} accordionCollapsed={accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed}/>*/}
-            <UncontrolledAccordion titleValue={'MENU'}/>
+            {/*<UncontrolledAccordion titleValue={'MENU'}/>*/}
             {/*<UncontrolledAccordion titleValue={'USERS'}/>*/}
             {/*<PageTitle title={'This is APP component'}/>*/}
             {/*<PageTitle title={'das'}/>*/}

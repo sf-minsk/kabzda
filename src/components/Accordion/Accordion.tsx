@@ -5,13 +5,13 @@ export type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
     setAccordionCollapsed: (value: boolean) => void
-    accordionCollapsed: boolean
+
 }
 
 export function Accordion(props: AccordionPropsType) {
     return (
         <div>
-            <AccordionTitle title={props.titleValue} accordionCollapsed={props.accordionCollapsed} setAccordionCollapsed={props.setAccordionCollapsed}/>
+            <AccordionTitle title={props.titleValue} accordionCollapsed={props.collapsed} setAccordionCollapsed={props.setAccordionCollapsed}/>
             { !props.collapsed && <AccordionBody/> }
         </div>
     )

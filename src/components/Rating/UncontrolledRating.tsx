@@ -1,11 +1,13 @@
 import React, {useState} from "react";
 import s from './UncontrolledRating.module.css'
 
+type UncontrolledRatingPropsType = {
+    defaultValue?: 0 | 1 | 2 | 3 | 4 | 5
+}
 
 
-
-export function UncontrolledRating() {
-    let [value, setValue] = useState(0)
+export function UncontrolledRating(props:UncontrolledRatingPropsType) {
+    let [value, setValue] = useState<0 | 1 | 2 | 3 | 4 | 5>(props.defaultValue ? props.defaultValue : 0)
     return (
         <div className={s.rating}>
             {/*<span onClick={()=>{setValue(1)}}><Star selected={value > 0}/></span>*/}
