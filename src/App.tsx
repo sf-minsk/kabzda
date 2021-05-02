@@ -19,7 +19,9 @@ function App() {
                 <Rating value={ratingValue} onClick={setRatingValue}/>
                 <Accordion titleValue={'MENU'}
                            collapsed={accordionCollapsed}
-                           setAccordionCollapsed={setAccordionCollapsed}/>
+                           setAccordionCollapsed={setAccordionCollapsed}
+                           items={[{title: 'Dmitriy',value: 1},{title: 'Valera',value: 2},{title: 'Artem',value: 3},{title: 'Victor',value: 4}]}
+                />
                 {/*<Accordion titleValue={'USERS'}*/}
                 {/*           collapsed={accordionCollapsed}*/}
                 {/*           accordionCollapsed={accordionCollapsed}*/}
