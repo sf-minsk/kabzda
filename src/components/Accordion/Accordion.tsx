@@ -22,7 +22,7 @@ export type AccordionPropsType = {
      */
     color?: string
     items: itemType[]
-    onClick: (value: any) => void
+    onClick: () => void
 }
 
 export function Accordion(props: AccordionPropsType) {
@@ -53,7 +53,9 @@ type AccordionBodyPropsType = {
 function AccordionBody(props: AccordionBodyPropsType) {
     return (
         <ul className={s.menuStyle}>
-            {props.items.map((i, index) => <li onClick={() => {props.onClick(i.value)}} key={index}>{i}</li>)}
+            {
+                props.items.map((i, index) => <li onClick={() => {props.onClick(i.value)}} key={index}>{i.title}</li>)
+            }
         </ul>
     )
 }
