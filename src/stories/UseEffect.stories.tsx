@@ -14,7 +14,6 @@ export const SimpleExample = () => {
         document.title = counter.toString()
 
 
-
     })
 
     return <>
@@ -34,13 +33,61 @@ export const SetTimeOutExample = () => {
         console.log('useEffect')
         setInterval(() => {
             setCounter((state) => state + 1)
-        },1000);
+        }, 1000);
     }, [])
-
-
 
     return <>
         Counter: {counter}<br/>
         Fake: {fake}
     </>
 }
+
+
+export const ResetEffectExample = () => {
+    const [counter, setCounter] = useState(1)
+
+    console.log('Component Rendered')
+
+    useEffect(() => {
+        console.log('Effect occurred')
+
+        return () => {
+            console.log('reset effect')
+        }
+
+    }, [counter])
+
+    return <>
+        Counter: {counter}
+        <button onClick={() => {
+            setCounter(counter + 1)
+        }}>+
+        </button>
+    </>
+}
+
+
+export const KeysTrackerExample = () => {
+    const [text, setText] = useState('')
+
+
+    useEffect(() => {
+
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText((state) => state + e.key)
+        }
+
+        window.addEventListener('keypress', handler)
+
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
+
+    }, [])
+
+    return <>
+        Text: {text}
+    </>
+}
+
